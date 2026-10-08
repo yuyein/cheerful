@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>[선수 닉네임] 응원 페이지</title>
+    <style>
+        /* 기본 리셋 및 폰트 설정 */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background-color: #121212;
+            color: #ffffff;
+            font-family: 'Pretendard', -apple-system, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* 메인 프로필 영역 */
+        .profile-section {
+            text-align: center;
+            margin-top: 50px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid #00ffcc; /* 포인트 컬러 */
+            box-shadow: 0 0 15px #00ffcc;
+            margin-bottom: 20px;
+        }
+        h1 { font-size: 28px; margin-bottom: 10px; }
+        .subtitle { color: #aaaaaa; font-size: 14px; margin-bottom: 30px; }
+
+        /* 응원 메시지 카드 */
+        .message-card {
+            background-color: #1e1e1e;
+            border-radius: 12px;
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        /* 인터랙티브 버튼 */
+        .action-btn {
+            background: linear-gradient(45deg, #00ffcc, #0088ff);
+            color: #000;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            margin-top: 10px;
+        }
+        .action-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 20px rgba(0, 255, 204, 0.5);
+        }
+
+        /* 숨겨진 편지 영역 */
+        #hidden-letter {
+            display: none;
+            margin-top: 20px;
+            padding: 20px;
+            background-color: rgba(0, 255, 204, 0.1);
+            border-left: 4px solid #00ffcc;
+            border-radius: 0 8px 8px 0;
+            width: 100%;
+            max-width: 400px;
+            animation: slideDown 0.5s ease-out;
+        }
+
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+        @keyframes slideDown { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+    <div class="profile-section">
+        <!-- 선수 사진이나 주력 영웅/캐릭터 이미지를 넣으세요 -->
+        <img src="https://via.placeholder.com/150" alt="프로필 이미지" class="profile-image">
+        <h1>[선수 닉네임]</h1>
+        <p class="subtitle">이번 시즌 최고의 플레이(POTG)를 응원합니다! 🎮</p>
+    </div>
+
+    <div class="message-card">
+        <p>오늘 경기 정말 수고 많으셨습니다.</p>
+        <p>항상 멋진 플레이 보여주셔서 감사해요.</p>
+        <p>앞으로의 모든 무대도 진심으로 응원할게요!</p>
+    </div>
+
+    <button class="action-btn" onclick="showLetter()">편지 열어보기 💌</button>
+
+    <div id="hidden-letter">
+        <p>여기에 선수에게 전하고 싶은 긴 이야기나, 기억에 남았던 순간들에 대한 진심 어린 편지를 적어보세요.</p>
+    </div>
+
+    <script>
+        function showLetter() {
+            const letter = document.getElementById('hidden-letter');
+            const btn = document.querySelector('.action-btn');
+            
+            if (letter.style.display === 'block') {
+                letter.style.display = 'none';
+                btn.innerText = '편지 열어보기 💌';
+            } else {
+                letter.style.display = 'block';
+                btn.innerText = '편지 닫기 닫기 닫기';
+            }
+        }
+    </script>
+</body>
+</html>
